@@ -42,7 +42,7 @@ import UIKit
     
     private var viewer: HSDriveFileViewer?
  
-    public class func handle(_ url: URL?) -> Bool {
+    @objc public class func handle(_ url: URL?) -> Bool {
         _ = HSGIDSignInHandler.sharedInstance
         if GIDSignIn.sharedInstance().handle(url) {
             return true
@@ -68,7 +68,7 @@ import UIKit
     }
 
     
-    public func pick(from vc: UIViewController?, withCompletion completion: @escaping (_ manager: HSDriveManager?, _ file: GTLRDrive_File?) -> Void) {
+    @objc public func pick(from vc: UIViewController?, withCompletion completion: @escaping (_ manager: HSDriveManager?, _ file: GTLRDrive_File?) -> Void) {
         viewer?.completion = completion
         viewer?.shouldSignInOnAppear = true
         
@@ -76,7 +76,7 @@ import UIKit
         
     }
     
-    func downloadFileContent(withService service: GTLRDriveService?, file: GTLRDrive_File?, completionBlock: @escaping (Data?, Error?) -> Void) {
+    @objc func downloadFileContent(withService service: GTLRDriveService?, file: GTLRDrive_File?, completionBlock: @escaping (Data?, Error?) -> Void) {
         
         guard let downloadURL = file?.downloadURL else {
             completionBlock(nil, NSError(domain: NSURLErrorDomain, code: NSURLErrorBadURL, userInfo: nil))
