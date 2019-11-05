@@ -28,7 +28,7 @@ private let kKeychainItemName = "Drive API"
     //* Default is YES. This is not recommended by Google, but I don't want to implement multi-page logic *
     open var autoFetchPages = false
     //* Default is 'Sign out'*
-    open var signOutLabel:String = "Sign out"
+    open var signOutLabel:String = NSLocalizedString("Account_Disconnect", comment: "")
     
     private var service: GTLRDriveService?
     
